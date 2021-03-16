@@ -10,5 +10,4 @@ Install dependencies:
 $ yarn install
 
 ## Automatic Simulation test
-$ yarn run start<br>
-
+$ yarn run start
