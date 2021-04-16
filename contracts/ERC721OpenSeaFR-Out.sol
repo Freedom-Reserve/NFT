@@ -1714,7 +1714,7 @@ contract ERC721Tradable is ERC721, Ownable {
     using Strings for string;
     using SafeMath for uint256;
 
-    address proxyRegistryAddress;
+    address public proxyRegistryAddress;
     uint256 private _currentTokenId = 0;
     uint256 public maxTokenId;
 
@@ -1810,6 +1810,37 @@ contract ERC721Tradable is ERC721, Ownable {
         return string(abi.encodePacked(a, b));
     }
 
+    function tokenURI(uint256 _tokenId)
+        public
+        view
+        override
+        returns (string memory str)
+    {
+        if (_tokenId == 0) {
+            str = "na";
+        } else if (_tokenId == 1) {
+            str = "ipfs://bafybeiahy2ednf4l2eak4voxoskuqrqh4pnqewxx4f2n6x7jsw6w2ic3gi";
+        } else if (_tokenId == 2) {
+            str = "ipfs://bafybeihxphm3msrktv23s5yuhsct7bvmvic75sifa2oa3mbct3optnggwu";
+        } else if (_tokenId == 3) {
+            str = "ipfs://bafybeib5a36m6dzk7ivztqgmhhzlgtjx2eulvtbxm6all7xe3hmppkuoae";
+        } else if (_tokenId == 4) {
+            str = "ipfs://bafybeibebbfxvxkkxuaei7emgb4vmngykkbq7gnxy2muwb6e7653uvdlfi";
+        } else if (_tokenId == 5) {
+            str = "ipfs://bafybeiekfwtnovtiz7zu5haq7t6vhyzno3lqurwehsprcvi3gho6fema2e";
+        } else if (_tokenId == 6) {
+            str = "ipfs://bafybeih3fttxvo74eik62otd2wy6d6zty5wwig7ocb6waqvl6tfrwb2sze";
+        } else if (_tokenId == 7) {
+            str = "ipfs://bafybeic6l4dehe3usvf25wmd5muzux2mfpe4pjapgir4cmyk43tmin6dei";
+        } else if (_tokenId == 8) {
+            str = "ipfs://bafybeifw7vgtgjdcuzfuhhorwp536z34tfsxv3ygetfa42ocbxnxycoxcu";
+        } else if (_tokenId == 9) {
+            str = "ipfs://bafybeifuhh42leyt63cfsvrygygrojnlqwvo5676n5x43lhyvstffc5slq";
+        } else if (_tokenId == 10) {
+            str = "ipfs://bafybeih3fibnfg7qiblfa7bkovljjp3755fpkdfhlxfcbciduu7nndjfze";
+        }
+    }
+    /*
     string public imageURL10 =
         "ipfs://QmRXEbABLQNAz3e7Ly2wWEg5ouCyVzJ4C3yoDyBs12tAwK/FR_2020_NFT_10.gif";
     string public imageURL =
@@ -1831,7 +1862,7 @@ contract ERC721Tradable is ERC721, Ownable {
         } else if (_tokenId == 991) {
             str = "ipfs://QmbBmgNyvnaXbed2zZP9UsBbvy3JZuHibDY27fV93V2YTM";
         }
-    }
+    }*/
 }
 
 /* @title Creature
@@ -1841,27 +1872,26 @@ contract Creature is ERC721Tradable {
     constructor()
         ERC721Tradable("Freedom Reserve Limited Edition 2020", "FRLA")
     {
-        maxTokenId = 10;
+      maxTokenId = 10;
+
+      //rinkeby
+      proxyRegistryAddress = address(0xF57B2c51dED3A29e6891aba85459d600256Cf317);
+
+      //mainnet
+      //proxyRegistryAddress = address(0xa5409ec958c83c3f309868babaca7c86dcb077c1);
     }
 
     //add to scan if all units have been sold
 
     function contractURI() public view returns (string memory) {
-        return tokenURI(991);
+        return tokenURI(1);
         //"https://creatures-api.opensea.io/contract/opensea-creatures";
     }
 }
 /*
 deployment: gasPrice = 10GWei, gasLimit = 2489646
 
-  let proxyRegistryAddress = "";
-  if (network === 'rinkeby') {
-    proxyRegistryAddress = "0xF57B2c51dED3A29e6891aba85459d600256Cf317";
-  } else if(network == 'mainnet') {
-    proxyRegistryAddress = "0xa5409ec958c83c3f309868babaca7c86dcb077c1";
-  }
-
     constructor()
-        ERC721Tradable("Freedom Reserve Limited Edition 2020", "FRLA", address(0xF57B2c51dED3A29e6891aba85459d600256Cf317))
+        ERC721Tradable("Freedom Reserve Limited Edition 2020", "FRLA")
     {}
 */

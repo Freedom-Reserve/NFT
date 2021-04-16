@@ -104,7 +104,7 @@ describe("describe1", function () {
     it("erc721 for EOA", async function () {
       log1("erc721 tests starts here...");
       let balance0, balance1, balance2;
-      let isOwner, bool1;
+      let isOwner, bool1, proxyRegistryAddress;
       log1("\n------------------== ");
       name1 = await nftFR.name();
       symbol1 = await nftFR.symbol();
@@ -116,6 +116,9 @@ describe("describe1", function () {
       log1("tokenURI_9:", tokenURI_9);
       tokenURI_10 = await nftFR.tokenURI(10);
       log1("tokenURI_10:", tokenURI_10);
+
+      proxyRegistryAddress = await nftFR.proxyRegistryAddress();
+      log1("proxyRegistryAddress:", proxyRegistryAddress);
 
       balance1 = await nftFR.balanceOf(user1.address);
       log1("balance1:", balance1.toString());

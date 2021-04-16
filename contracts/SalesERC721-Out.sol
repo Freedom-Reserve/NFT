@@ -889,7 +889,7 @@ contract SalesERC721 is AssetBookNFT {
         priceInWeiETH = _priceInWeiETH;
         //priceInWeiETH = 100000000000000000;
         require(priceInWeiETH > 0, "invalid priceInWeiETH");
-    }
+    }// 000000000000000000000000ARG000000000000000000000000ARG000000000000000000000000000000000000000000000000016345785d8a0000
 
     function BuyNFTViaETHCheck(uint256 _tokenId)
         external
